@@ -1,33 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Age Checker</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <h2>Check Your Age Category</h2>
   <input type="number" id="ageInput" placeholder="Enter your age" />
-  <button onclick="checkAge()" >Check</button>
+  <button onclick="checkAge()">Check</button>
   <p id="result"></p>
-
-  <!-- <script >
-    function checkAge() {
-      let age = document.getElementById("ageInput").value;
-      let result = "";
-
-      if (age < 0) {
-        result = "Please enter a valid age!";
-      } else if (age < 18) {
-        result = "You are a minor.";
-      } else if (age >= 18 && age <= 60) {
-        result = "You are an adult.";
-      } else {
-        result = "You are a senior citizen.";
-      }
-
-      document.getElementById("result").innerText = result; 
-    }
-  </script> -->
   <script src="script.js"></script>
 </body>
+
 </html>
