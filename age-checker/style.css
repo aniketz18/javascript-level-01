@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(154, 228, 211);
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    padding-top: 20vh;
+}
+h2{
+    
+    color: rgb(215, 12, 35);
+}
+
+#ageInput{
+    height: 4vh;
+    width: 24vh;
+    background-color: rgb(202, 150, 180);
+    border-radius: 22px;
+    text-align: center;
+    color: blue;
+    font-size: 22px;
+    border: 2px solid rgb(92, 156, 89);
+    margin-top:2vh;
+}
+button{
+    width: 9vh;
+    height: 6vh;
+    margin-left: 2vw;
+    background-color: chartreuse;
+    border-radius: 60%;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(15, 30, 1);
+    color: bisque;
+
+}
+p{
+    color: rgb(2, 55, 2);
+    font-size: 36px;
+    margin-top: 4vh;
+    font-weight: 800;
+    
+    
+}
