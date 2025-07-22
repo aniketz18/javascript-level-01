@@ -1,0 +1,119 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+body {
+  background-color: rgb(196, 133, 133);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+}
+
+/* Title Bar */
+.title {
+  width: 100%;
+  background-color: rgb(2, 2, 21);
+  color: #cecf64;
+  line-height: 5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+/* Game Options */
+.options {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.choices img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid blueviolet;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.choices img:hover {
+  opacity: 0.9;
+  border: 8px solid rgb(183, 22, 154);
+}
+
+/* Scoreboard */
+.score {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+#user,
+#comp {
+  background-color: rgb(227, 220, 11);
+  color: rgb(0, 0, 0);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: 2px solid blue;
+}
+
+#user-score,
+#comp-score {
+  font-weight: 800;
+  color: rgb(0, 0, 0);
+  padding: 1rem 2rem;
+}
+
+/* Result Section */
+.result {
+  font-size: 1.8rem;
+  background-color: rgb(5, 1, 10);
+  color: #fff;
+  border: 2px solid #b4bd06;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.5rem;
+    line-height: 4rem;
+  }
+
+  .choices img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .score {
+    font-size: 1.2rem;
+  }
+
+  #user,
+  #comp,
+  #user-score,
+  #comp-score {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .result {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .options {
+    gap: 1.5rem;
+  }
+}
