@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="cloudy.png" type="image/x-icon">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #76869f, #b6fbff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .weather-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .weather-container input {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .weather-container button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .weather-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        /* mobile version */
+        @media screen and (max-width: 600px) {
+            .weather-container {
+                background: transparent;
+                box-shadow: none;
+                gap: 10vh;
+            }
+
+        }
+    </style>
+
+<body>
+    <div class="weather-container">
+        <h2>Weather App</h2>
+        <input type="text" id="cityInput" placeholder="Enter city name" />
+        <button onclick="getWeather()">Get Weather</button>
+        <div class="result" id="weatherResult"></div>
+    </div>
+
+    <script>
+        function getWeather() {
+            const city = document.getElementById("cityInput").value;
+            const apiKey = "46741203ca0a4ef0958103535252907"; // Your WeatherAPI key
+
+            // Dynamic city in the URL now
+            const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.location) {
+                        const weatherInfo = `
+            <h3>${data.location.name}, ${data.location.country}</h3>
+            <p><strong>Temperature:</strong> ${data.current.temp_c}°C</p>
+            <p><strong>Condition:</strong> ${data.current.condition.text}</p>
+            <p><strong>Humidity:</strong> ${data.current.humidity}%</p>
+            <img src="https:${data.current.condition.icon}" alt="icon" />
+          `;
+                        document.getElementById("weatherResult").innerHTML = weatherInfo;
+                    } else {
+                        document.getElementById("weatherResult").innerHTML = `<p>City not found!</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching weather data:", error);
+                    document.getElementById("weatherResult").innerHTML = `<p>Error fetching data</p>`;
+                });
+        }
+
+        // function for random background color
+        function getRandomColor() {
+            const r1 = Math.floor(Math.random() * 256);
+            const g1 = Math.floor(Math.random() * 256);
+            const b1 = Math.floor(Math.random() * 256);
+            const r2 = Math.floor(Math.random() * 256);
+            const g2 = Math.floor(Math.random() * 256);
+            const b2 = Math.floor(Math.random() * 256);
+            return `linear-gradient(45deg, rgb(${r1},${g1},${b1}),rgb(${r2},${g2},${b2}))`;
+        }
+
+        // function to set color
+        function changeBg() {
+            const randomColor = getRandomColor();
+            document.body.style.background = randomColor;
+        }
+
+        // change color every 1/0.5 sec 
+
+        setInterval(changeBg, 2000);
+
+    </script>
+
+</body>
+
+</html>
